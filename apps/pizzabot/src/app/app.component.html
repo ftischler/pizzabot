@@ -1,0 +1,27 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <h1>Pizzabot 🍕</h1>
+  </nb-layout-header>
+
+  <nb-layout-column>
+
+    <nb-chat title="Hallo, bitte sagen Sie, dass Sie eine Pizza 🍕 bestellen möchten" size="giant">
+      <nb-chat-message *ngFor="let message of messages$ | async"
+                       [message]="message.text"
+                       [sender]="message.sender"
+                       [date]="message.date"
+                       [reply]="message.reply"
+                       [avatar]="message.avatar">
+      </nb-chat-message>
+      <nb-chat-form (send)="sendMessage($event)">
+      </nb-chat-form>
+    </nb-chat>
+
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    I ❤️ 🍕
+  </nb-layout-footer>
+
+</nb-layout>
